@@ -1,16 +1,28 @@
 parameters:
-    qbitz.freshmail.class:       "Qbitz\FreshmailBundle\Freshmail\Browser"
-    qbitz.freshmail.buzz_client: ~
-    qbitz.freshmail.api_key:     ~
-    qbitz.freshmail.api_secret:  ~
-    qbitz.freshmail.host:        ~
-    qbitz.freshmail.prefix:      ~
+    qbitz.freshmail.class:                      'Qbitz\FreshmailBundle\Freshmail\Browser'
+    qbitz.freshmail.buzz.browser_factory.class: 'Qbitz\FreshmailBundle\Buzz\BrowserFactory'
+    qbitz.freshmail.buzz_client:                ~
+    qbitz.freshmail.buzz_timeout:               5
+    qbitz.freshmail.api_key:                    ~
+    qbitz.freshmail.api_secret:                 ~
+    qbitz.freshmail.host:                       ~
+    qbitz.freshmail.prefix:                     ~
 
 services:
+    qbitz.freshmail.buzz.browser_factory:
+        class: '%qbitz.freshmail.buzz.browser_factory.class%'
+    qbitz.freshmail.buzz.browser:
+        class: 'Buzz\Browser'
+        public: false
+        factory_service:  qbitz.freshmail.buzz.browser_factory
+        factory_method:   getBrowser
+        arguments:
+            - "%qbitz.freshmail.buzz_client%"
+            - "%qbitz.freshmail.buzz_timeout%"
     qbitz.freshmail:
         class: "%qbitz.freshmail.class%"
         arguments:
-            - "%qbitz.freshmail.buzz_client%"
+            - @qbitz.freshmail.buzz.browser
             - "%qbitz.freshmail.api_key%"
             - "%qbitz.freshmail.api_secret%"
             - "%qbitz.freshmail.host%"
