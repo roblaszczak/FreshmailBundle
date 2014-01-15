@@ -12,7 +12,7 @@ class QueryCommand extends ContainerAwareCommand {
 
   protected function configure() {
     $this
-      ->setName('qbitz:freshmail:query')
+      ->setName('qbitz:freshmail:doRequest')
       ->setDescription('Send single query to freshmail service')
       ->addArgument('url', InputArgument::REQUIRED, 'URL to execute, ie. subscriber/add')
       ->addOption('vars', null, InputOption::VALUE_REQUIRED, 'Sets post argument in json format')
