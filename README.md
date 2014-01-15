@@ -33,6 +33,7 @@ W config.yml wymagana jest konfiguracja dla bundla:
 
 Tylko api_key i api_secret są wymagane, host i prefix lepiej nie zmieniać bo na razie tylko tak można się odwoływać.
 
+Opcja buzz_client ustawia typ klienta dla Buzza, tylko Curl i file_get_contents, domyślnie Curl.
 
 WYKORZYSTANIE
 -------------
