@@ -1,0 +1,17 @@
+parameters:
+    qbitz.freshmail.class:       "Qbitz\FreshmailBundle\Freshmail\Browser"
+    qbitz.freshmail.buzz_client: ~
+    qbitz.freshmail.api_key:     ~
+    qbitz.freshmail.api_secret:  ~
+    qbitz.freshmail.host:        ~
+    qbitz.freshmail.prefix:      ~
+
+services:
+    qbitz.freshmail:
+        class: "%qbitz.freshmail.class%"
+        arguments:
+            - "%qbitz.freshmail.buzz_client%"
+            - "%qbitz.freshmail.api_key%"
+            - "%qbitz.freshmail.api_secret%"
+            - "%qbitz.freshmail.host%"
+            - "%qbitz.freshmail.prefix%"
