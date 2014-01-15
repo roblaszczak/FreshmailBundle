@@ -12,7 +12,7 @@ INSTALACJA
 Do połączen http bundle korzysta z Buzza (https://github.com/kriswallsmith/Buzz). Instalacja przez kompozytora:
   
     "kriswallsmith/buzz": "dev-master",
-    "qbitz/freshmailbundle": "dev-master" (jak dodam do packagista)
+    "qbitz/freshmailbundle": "dev-master"
 
 Dodanie bundla do AppKernel
 
