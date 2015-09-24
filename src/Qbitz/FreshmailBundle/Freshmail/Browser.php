@@ -14,6 +14,8 @@ class Browser {
   public function __construct(\Buzz\Browser $buzzBrowser, $apiKey, $apiSecret, $host, $prefix) {
     $this->buzzBrowser = $buzzBrowser;
 
+    $this->buzzBrowser->getClient()->setOption(CURLOPT_SSL_VERIFYPEER, false);
+
     $this->apiKey = $apiKey;
     $this->apiSecret = $apiSecret;
     $this->host = $host;
@@ -21,7 +23,7 @@ class Browser {
   }
 
   public function doRequest($url, array $params = array()) {
-    
+
     if (empty($params)) {
       $postData = '';
     }
@@ -62,7 +64,7 @@ class Browser {
     if (is_array($responseData) == false) {
       throw new \Exception('Invalid json response');
     }
-    
+
     return $responseData;
   }
 
