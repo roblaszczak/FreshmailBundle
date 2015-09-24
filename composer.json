@@ -5,6 +5,7 @@
     "homepage": "https://github.com/Qbitz/FreshmailBundle",
     "type": "symfony-bundle",
     "license": "MIT",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Piotr Kubowicz",
